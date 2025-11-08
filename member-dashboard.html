@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Member Dashboard</title>
+  <link rel="stylesheet" href="manage-members.css"> <!-- reuse your admin/member CSS -->
+  <style>
+    .dashboard-header { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+    .profile-card { padding:12px; background:rgba(255,255,255,0.03); border-radius:10px; margin-bottom:12px; }
+    .section { margin-top:16px; }
+    .receipt-item { display:flex; justify-content:space-between; gap:12px; padding:10px; border-radius:8px; background:rgba(255,255,255,0.02); margin-bottom:8px; align-items:center; }
+    .notif-item { padding:10px; border-radius:8px; background:rgba(255,255,255,0.02); margin-bottom:8px; }
+    .muted { color:#bbb; font-size:13px; }
+    .btn-small { padding:8px 10px; border-radius:8px; border:none; cursor:pointer; font-weight:600; }
+    .btn-download { background:#2196f3; color:#fff; }
+    .btn-edit { background:#ff9800; color:#fff; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="dashboard-header">
+      <h1>💪 Member Dashboard</h1>
+      <div>
+        <button class="btn-primary" id="logoutBtn">Logout</button>
+      </div>
+    </div>
+
+    <!-- 🔹 Profile Card -->
+    <div class="profile-card">
+      <h3>Profile</h3>
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+        <div style="flex:1;min-width:200px;">
+          <div class="muted">Name</div>
+          <input id="profileName" type="text" style="width:100%;padding:10px;border-radius:8px;border:none;margin-top:6px;">
+        </div>
+        <div style="flex:1;min-width:200px;">
+          <div class="muted">Phone</div>
+          <input id="profilePhone" type="text" style="width:100%;padding:10px;border-radius:8px;border:none;margin-top:6px;">
+        </div>
+        <div style="min-width:200px;">
+          <div class="muted">Email</div>
+          <div id="profileEmail" style="padding:10px;margin-top:6px;background:rgba(255,255,255,0.03);border-radius:8px;"></div>
+        </div>
+      </div>
+      <div style="margin-top:10px;">
+        <button class="btn-primary" id="saveProfileBtn">Save Profile</button>
+        <button class="btn-success" id="refreshBtn">Refresh</button>
+      </div>
+    </div>
+
+    <!-- 🔹 Trainer & Diet Selection Card (new) -->
+     
+    <div id="selectTrainerDietCard" style="display:none; margin-top:16px; background: rgba(255,255,255,0.04); padding:16px; border-radius:10px;">
+      <h3>Select Your Trainer & Diet</h3>
+      <div style="margin:8px 0;">
+        <label class="muted">Choose Trainer</label>
+        <select id="selectTrainer" style="width:100%; padding:10px; border-radius:8px; margin-top:6px;">
+          <option value="">-- Loading trainers... --</option>
+        </select>
+      </div>
+
+      <div style="margin:8px 0;">
+        <label class="muted">Diet Plan</label>
+        <select id="selectDiet" style="width:100%; padding:10px; border-radius:8px; margin-top:6px;">
+          <option value="">-- Choose a diet --</option>
+          <option value="general">General Balanced</option>
+          <option value="weight_loss">Weight Loss</option>
+          <option value="muscle_gain">Muscle Gain</option>
+          <option value="keto">Keto</option>
+          <option value="vegan">Vegan</option>
+          <option value="custom">Custom (describe below)</option>
+        </select>
+      </div>
+
+      <div id="customDietContainer" style="display:none; margin-top:8px;">
+        <label class="muted">Custom Diet Notes</label>
+        <textarea id="customDiet" placeholder="Describe your diet needs (allergies / goals)" style="width:100%; padding:10px; border-radius:8px; min-height:80px;"></textarea>
+      </div>
+
+      <div style="display:flex; gap:8px; margin-top:12px;">
+        <button id="saveTrainerDietBtn" class="btn-primary">Save Selection</button>
+        <button id="skipTrainerDietBtn" class="btn-success">Save & Continue (Skip for now)</button>
+      </div>
+    </div>
+
+    <!-- 🔹 Receipts -->
+    <div class="section">
+      <h3>Receipts</h3>
+      <div id="receiptsList" class="muted">Loading receipts...</div>
+    </div>
+
+    <!-- 🔹 Notifications -->
+    <div class="section">
+      <h3>Notifications</h3>
+      <div id="notificationsList" class="muted">Loading notifications...</div>
+    </div>
+
+  </div>
+
+  <script type="module" src="member-dashboard.js"></script>
+</body>
+</html>

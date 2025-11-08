@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Manage Notifications - Admin</title>
+  <link rel="stylesheet" href="manage-members.css">
+  <style>
+    .card { background: rgba(255,255,255,0.03); padding:14px; border-radius:10px; margin-bottom:12px; }
+    .muted { color:#bbb; font-size:13px; }
+    textarea { width:100%; min-height:100px; padding:10px; border-radius:8px; border:none; }
+    input[type="text"] { width:100%; padding:10px; border-radius:8px; border:none; }
+    .row { display:flex; gap:8px; align-items:center; margin-bottom:8px; flex-wrap:wrap; }
+    .btn-small { padding:8px 12px; border-radius:8px; border:none; cursor:pointer; font-weight:600; }
+    .btn-primary { background:#ff9800; color:#fff; }
+    .btn-danger { background:#e74c3c; color:#fff; }
+    .history-item { padding:10px; border-radius:8px; background:rgba(255,255,255,0.02); margin-bottom:8px; display:flex; justify-content:space-between; }
+    .history-left { max-width:75%; }
+    .spinner { display:inline-block; width:18px; height:18px; border:3px solid rgba(255,255,255,0.15); border-top-color:#fff; border-radius:50%; animation:spin 0.8s linear infinite; margin-left:8px; vertical-align:middle; }
+    @keyframes spin { to { transform:rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔔 Admin — Notifications</h1>
+
+    <div class="card">
+      <div class="row">
+        <label class="muted" style="min-width:120px">Send to Member (UID)</label>
+        <input id="notifUid" placeholder="Leave empty to target a single member (or use Send to All)" type="text">
+      </div>
+
+      <div class="row">
+        <label class="muted" style="min-width:120px">Message</label>
+      </div>
+      <div>
+        <textarea id="notifMessage" placeholder="Write your message here..."></textarea>
+      </div>
+
+      <div class="row" style="margin-top:8px;">
+        <label><input id="sendToAll" type="checkbox"> <span class="muted">Send to ALL members</span></label>
+        <button class="btn-small btn-primary" id="sendBtn">Send</button>
+        <div id="sendStatus" style="margin-left:8px;"></div>
+      </div>
+      <div class="muted">Tip: To send to a specific member paste their UID (from Manage Members). For demos it's fine to broadcast to all.</div>
+    </div>
+
+    <div class="card">
+      <h3>History of Sent Notifications</h3>
+      <div id="historyList" class="muted">Loading history...</div>
+    </div>
+
+    <div style="margin-top:12px;">
+      <a href="admin-dashboard.html" class="btn-small btn-primary">← Back to Dashboard</a>
+      <button onclick="logout()" class="btn-small btn-danger" style="float:right">Logout</button>
+    </div>
+  </div>
+
+  <script type="module" src="manage-notifications.js"></script>
+</body>
+</html>

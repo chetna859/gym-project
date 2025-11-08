@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reports - Admin</title>
+  <link rel="stylesheet" href="reports.css">
+  
+</head>
+<body>
+  <div class="container">
+    <h1>Admin — Reports</h1>
+
+    <div class="report-controls">
+      <label>From: <input id="fromDate" type="date"></label>
+      <label>To: <input id="toDate" type="date"></label>
+      <button class="btn-primary" onclick="generateReports()">Generate Reports</button>
+      <button class="btn-primary" onclick="exportCurrentReportCSV()">Export Current Report CSV</button>
+      <input id="topN" type="number" placeholder="Top N members" style="width:100px" value="10">
+    </div>
+
+    <div class="stat-grid" id="statsGrid">
+      <!-- summary stat cards -->
+    </div>
+
+    <section>
+      <h2 style="color:#ffea8a">Revenue by Month</h2>
+      <div id="revenueByMonth"></div>
+    </section>
+
+    <section>
+      <h2 style="color:#ffea8a">Top Members by Revenue</h2>
+      <div id="topMembers"></div>
+    </section>
+
+    <section>
+      <h2 style="color:#ffea8a">Recent Receipts</h2>
+      <div id="recentReceipts"></div>
+    </section>
+
+    <div style="margin-top:18px;">
+      <a href="admin-dashboard.html" class="btn-primary" style="text-decoration: none;">← Back to Dashboard</a>
+      <button onclick="logout()" class="btn-success" style="float:right">Logout</button>
+    </div>
+  </div>
+
+  <script type="module" src="reports.js"></script>
+</body>
+</html>

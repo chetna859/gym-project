@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Manage Members - Admin</title>
+ <link rel="stylesheet" href="manage-members.css">
+
+
+</head>
+<body>
+  <div class="container">
+    <h1>Admin — Manage Members</h1>
+
+    <div class="top-row">
+      <input id="searchInput" class="search" placeholder="Search by name or email or UID (leave empty to list all)">
+      <button onclick="refreshList()" class="btn-primary">Refresh</button>
+    </div>
+
+    <table class="members-table" id="membersTable">
+      <thead>
+        <tr><th>UID</th><th>Name</th><th>Email</th><th>Role</th><th>Actions</th></tr>
+      </thead>
+      <tbody id="membersBody">
+        <!-- rows injected here -->
+      </tbody>
+    </table>
+
+    <p style="margin-top:12px; color:#ddd; font-size:13px;">
+      Note: Promote will change the member's role to <strong>admin</strong>. Delete will remove the member record from Realtime Database (does not delete Firebase Auth user).
+    </p>
+
+    <div style="margin-top:16px;">
+      <a href="admin-dashboard.html" class="btn-primary" >← Back to Dashboard</a>
+      <button onclick="logout()" class="btn-success" style="float:right">Logout</button>
+    </div>
+  </div>
+
+  <script type="module" src="manage-members.js"></script>
+</body>
+</html>

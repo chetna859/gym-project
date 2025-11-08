@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Manage Trainers - Admin</title>
+  <link rel="stylesheet" href="manage-trainers.css"> <!-- reuse same styling -->
+ 
+</head>
+<body>
+  <div class="container">
+    <h1>Admin — Manage Trainers</h1>
+
+    <!-- Add / Edit Form -->
+    <div class="card-small">
+      <div style="font-weight:600; margin-bottom:8px;">Add / Edit Trainer</div>
+      <div class="trainer-form">
+        <input id="trainerName" placeholder="Full name" />
+        <input id="trainerSpecialty" placeholder="Specialty (e.g., Yoga)" />
+        <input id="trainerExperience" placeholder="Experience (e.g., 5 years)" />
+        <input id="trainerPhone" placeholder="Phone (optional)" />
+        <input id="trainerPhotoUrl" type="url" placeholder="Paste GitHub raw image URL (optional)" />
+
+
+        <button class="btn-primary" onclick="saveTrainer()">Save Trainer</button>
+        <button class="btn-success" onclick="resetForm()">Clear</button>
+      </div>
+      <input id="editTrainerId" type="hidden" />
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <input id="searchTrainer" class="search" placeholder="Search trainers by name or specialty">
+      <button onclick="loadTrainers()" class="btn-primary">Refresh</button>
+    </div>
+
+    <div id="trainersList" style="margin-top:16px;">
+      <!-- trainer rows injected here -->
+    </div>
+
+    <div style="margin-top:16px;">
+      <a href="admin-dashboard.html" class="btn-primary">← Back to Dashboard</a>
+      <button onclick="logout()" class="btn-success" style="float:right; padding: 10px 16px; border-radius: 10px;">Logout</button>
+    </div>
+  </div>
+
+  <script type="module" src="manage-trainers.js"></script>
+</body>
+</html>

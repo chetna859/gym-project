@@ -1,0 +1,194 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: linear-gradient(135deg, #1e3c72, #2a5298, #ff416c, #ff4b2b);
+  background-size: 300% 300%;
+  animation: gradientBG 12s ease infinite;
+  padding: 40px 20px;
+  color: #fff;
+}
+
+/* Background animation */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Main Container */
+.container {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffcc00;
+  font-size: 28px;
+}
+
+/* Form Styling */
+.trainer-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.trainer-form input {
+  flex: 1;
+  min-width: 180px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+}
+
+.trainer-form input:focus {
+  border: 2px solid #ff9800;
+  background: #fff;
+  color: #000;
+}
+
+.trainer-form button {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary {
+    padding: 8px 10px;
+  border: none;
+  border-radius: 10px;
+    text-decoration: none;
+  background: #ff9800;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #e68900;
+}
+
+.btn-success {
+  background: #4caf50;
+  color: #fff;
+}
+
+.btn-success:hover {
+  background: #3e8e41;
+}
+
+/* Search Bar */
+.search {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+}
+
+/* Trainer Card List */
+#trainersList {
+  margin-top: 20px;
+}
+
+.card-small {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.card-small:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Trainer Info */
+.card-small div {
+  color: #fff;
+}
+
+.card-small div strong {
+  font-size: 16px;
+  color: #ffcc00;
+}
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.copy-btn {
+  background: #2196f3;
+  color: #fff;
+}
+
+.copy-btn:hover {
+  background: #1976d2;
+}
+
+.promote-btn {
+  background: #ff9800;
+  color: #fff;
+}
+
+.promote-btn:hover {
+  background: #e68900;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+}
+
+/* Footer Buttons */
+.container div a, 
+.container div button {
+  margin-top: 12px;
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Billing - Admin</title>
+  <link rel="stylesheet" href="manage-members.css">
+  <style>
+    .receipt-row { display:flex; justify-content:space-between; gap:8px; align-items:center; padding:10px; border-radius:8px; background:rgba(255,255,255,0.03); margin-bottom:8px; }
+    .receipt-meta { font-size:14px; color:#eee; }
+    .receipt-actions button { margin-left:6px; }
+    .small-muted { color:#bbb; font-size:13px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin — Billing</h1>
+
+    <div class="card-small">
+      <div style="font-weight:600; margin-bottom:8px;">Create Bill / Receipt</div>
+
+      <div style="display:flex;flex-direction:column;gap:8px;max-width:640px;margin:auto">
+        <input id="billMemberUid" placeholder="Member UID (paste or copy from members list)" />
+        <input id="billAmount" placeholder="Amount (number)" type="number" />
+        <input id="billDate" placeholder="Date (yyyy-mm-dd)" type="date" />
+        <select id="billStatus">
+          <option value="Paid">Paid</option>
+          <option value="Pending">Pending</option>
+        </select>
+        <input id="billNotes" placeholder="Notes (optional)" />
+        <button class="btn-primary" onclick="createBill()">Create Bill</button>
+      </div>
+    </div>
+
+    <hr style="margin:18px 0; border-color: rgba(255,255,255,0.06)">
+
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;">
+      <input id="viewMemberUid" placeholder="Enter member UID to view (leave empty = show recent all)" />
+      <button class="btn-primary" onclick="loadReceiptsForMember()">Load Receipts</button>
+      <button class="btn-primary" onclick="loadRecentReceipts()">Load Recent All</button>
+      <input id="exportMemberUid" placeholder="Member UID for CSV export (leave empty = all)" style="margin-left:8px;" />
+      <button class="btn-primary" onclick="exportReceiptsCSV()">Export CSV</button>
+    </div>
+
+    <div id="receiptsContainer">
+      <!-- receipts will be injected here -->
+    </div>
+
+    <div style="margin-top:20px;">
+      <a href="admin-dashboard.html" class="btn-primary">← Back to Dashboard</a>
+      <button onclick="logout()" class="btn-success" style="float:right">Logout</button>
+    </div>
+  </div>
+
+  <script type="module" src="billing.js"></script>
+</body>
+</html>
